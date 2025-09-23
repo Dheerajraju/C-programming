@@ -1,0 +1,11 @@
+#include<stdio.h>
+int main()
+{
+        int num,pos;
+        printf("Enter the number & position\n");
+        scanf("%d%d",&num,&pos);
+        num = num|(1<<pos);   //set a bit
+        num = num&~(1<<pos);  //clear a bit
+        num = num^(1<<pos);    //complement a bit
+        printf("num = %d\n",num);
+}
