@@ -1,0 +1,10 @@
+#include<stdio.h>
+int main()
+{
+int x=2, y=4;
+printf("values of x and y before swaping x=%dy=%d",x,y);
+x = x^y;
+y = x^y;
+x = x^y;
+printf("number after swapping x=%d y=%d",x,y);
+}
