@@ -1,0 +1,13 @@
+#include<stdio.h>
+int main()
+{
+        FILE *fp = fopen("data.txt","r");
+        if(fp == NULL)
+        {
+                printf("the file is empty");
+        }
+        else
+        {
+                printf("the file exixts");
+        }
+}
