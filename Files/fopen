@@ -1,13 +1,19 @@
 #include<stdio.h>
-int main()
+int main(int argc, char *argv[])
 {
-        FILE *fp = fopen("data.txt","r");
-        if(fp == NULL)
+        if(argc != 2) //no.of arguments should be 2
         {
-                printf("the file is empty");
+        printf("usage: .a/.out filename\n");
+        }
+
+        FILE *fp = fopen("data.txt","r"); //opening the txt file in read mode
+        if(fp == NULL) //checking the file is empty or not
+        {
+                printf("the file is empty\n");
         }
         else
         {
-                printf("the file exixts");
+                printf("the file exixts\n");
         }
 }
+           
