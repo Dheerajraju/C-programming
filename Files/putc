@@ -1,0 +1,9 @@
+#include<stdio.h>
+int main()
+{
+        FILE *fp = fopen("data.txt","w");
+
+        fputc('M',fp);
+        fputc('A',fp);
+        fputc('N',fp);
+}
