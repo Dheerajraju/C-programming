@@ -7,7 +7,21 @@ int genrollno(student *head)
 {
   int roll=1;
   student *temp = head;
-while(temp)
+while(temp)typedef struct student{
+        char name[20];
+        int roll_no;
+        float mark;
+        struct student *next;
+} student;
+
+student *add(student *head);
+student *delete(student *head);
+void show(student *head);
+student modify(student *head);
+void save(student *head);
+student sort(student *head);
+student *delete_all(student *head);
+student *reverse(student *head);
 {
 if(temp ->rollno >= roll)roll = temp -> rollno +1;
 temp = temp ->next;
@@ -15,4 +29,31 @@ temp = temp ->next;
 return roll;
 }
 
-student *add
+student *stud_add(student *head)
+{
+  student *newnode = (student*)malloc(sizeof(student)):
+if(!newnode) 
+{
+printf("Memory allocation failed!\n");
+return head;
+}
+newnode -> rollno = genroll(head);
+printf("Enter the name:");
+scanf("%c",newnode -> name);
+printf("Enter the percentage: ");
+scanf("%f",&newnode -> percentage);
+newnode ->next = null;
+
+if(head == NULL)
+{
+head = newnode;
+}
+else
+{
+student *temp = head;
+while(temp -> next) temp = temp ->next;
+temp -> next = newnode;
+}
+printf("Record added Rollno: %d\n", newnode ->rollno);
+return head;
+}
