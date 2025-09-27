@@ -2,16 +2,16 @@
 
 typedef struct student{
         char name[20];
-        int roll_no;
+        int rollno;
         float mark;
         struct student *next;
 } student;
 
-student *add(student *head);
-student *delete(student *head);
-void show(student *head);
-student modify(student *head);
-void save(student *head);
-student sort(student *head);
-student *delete_all(student *head);
-student *reverse(student *head);
+student *stud_add(student *head);
+student *stud_del(student *head);
+void stud_show(student *head);
+student stid_mod(student *head);
+void stud_save(student *head);
+student stud_sort(student *head);
+student *stud_delAll(student *head);
+student *stud_reverse(student *head);
