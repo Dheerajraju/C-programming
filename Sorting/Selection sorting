@@ -1,31 +1,31 @@
 #include <stdio.h>
 
 int main() {
-    int a[5] = {40, 80, 30, 20, 5};     // Initialize the array
+    int a[5] = {40, 80, 30, 20, 5};   // Initialize the array with 5 elements
     int i, j, temp;
-    int n = sizeof(a) / sizeof(a[0]);   // Find the number of elements in the array
+    int n = sizeof(a) / sizeof(a[0]); // Find total number of elements in the array
 
-    // Print array before sorting
+    // Display array before sorting
     printf("Before sorting: ");
-    for(i = 0; i < n; i++)              // ✅ loop should go till n, not n-1
+    for(i = 0; i < n; i++)
         printf("%d ", a[i]);
     printf("\n");
 
-    // Selection sort (descending order)
-    for(i = 0; i < n - 1; i++)          // Outer loop for passes
+    // Sorting logic (ascending order)
+    for(i = 0; i < n - 1; i++)        // Outer loop for passes
     {
-        for(j = i + 1; j < n; j++)      // Inner loop to compare elements
+        for(j = i + 1; j < n; j++)    // Inner loop to compare elements
         {
-            if(a[i] < a[j])             // Swap if the next element is greater (for descending)
+            if(a[i] > a[j])           // If current element is greater than next one
             {
-                temp = a[i];
+                temp = a[i];          // Swap them
                 a[i] = a[j];
                 a[j] = temp;
             }
         }
     }
 
-    // Print array after sorting
+    // Display array after sorting
     printf("After sorting: ");
     for(i = 0; i < n; i++)
         printf("%d ", a[i]);
