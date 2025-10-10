@@ -1,37 +1,32 @@
 #include <stdio.h>
-int main()
-{
-    int a[5] = {5, 2, 9, 1, 6};       // Initialize the array
-    int n = sizeof(a) / sizeof(a[0]); // Find number of elements
-    int i, j, min, temp;
+
+int main() {
+    int a[5] = {40, 80, 30, 20, 5};     // Initialize the array
+    int i, j, temp;
+    int n = sizeof(a) / sizeof(a[0]);   // Find the number of elements in the array
 
     // Print array before sorting
-    printf("Array before sorting: ");
-    for(i = 0; i < n; i++)
+    printf("Before sorting: ");
+    for(i = 0; i < n; i++)              // ✅ loop should go till n, not n-1
         printf("%d ", a[i]);
     printf("\n");
 
-    // Selection sort logic
-    for(i = 0; i < n - 1; i++)     // Outer loop for passes
+    // Selection sort (descending order)
+    for(i = 0; i < n - 1; i++)          // Outer loop for passes
     {
-        min = i;                   // Assume current index is the minimum
-        for(j = i + 1; j < n; j++) // Inner loop to find actual minimum
+        for(j = i + 1; j < n; j++)      // Inner loop to compare elements
         {
-            if(a[j] < a[min])      // If smaller element found
-                min = j;           // Update index of minimum
-        }
-
-        // Swap the found minimum element with the first element of unsorted part
-        if(min != i)
-        {
-            temp = a[i];
-            a[i] = a[min];
-            a[min] = temp;
+            if(a[i] < a[j])             // Swap if the next element is greater (for descending)
+            {
+                temp = a[i];
+                a[i] = a[j];
+                a[j] = temp;
+            }
         }
     }
 
     // Print array after sorting
-    printf("Array after sorting: ");
+    printf("After sorting: ");
     for(i = 0; i < n; i++)
         printf("%d ", a[i]);
     printf("\n");
