@@ -1,0 +1,50 @@
+// Program to find the first and second largest numbers in an array
+#include<stdio.h>
+
+int main()
+{
+    int a[8] = {10,10,10,10,10,10,10,10}; // Initialize array with 8 elements (all 10s)
+    int i, big1, big2;                    // Variables to store first and second largest numbers
+    int n = sizeof a / sizeof a[0];       // Calculate number of elements in array
+
+    // Loop to check if all elements are equal
+    for(i = 0; i < n - 1; i++)
+    {
+        if(a[i] != a[i + 1])              // Check if any two consecutive elements are different
+            break;                        // Break the loop when a difference is found
+    }
+
+    if(i != n - 1)                        // If not all elements are same
+    {
+        // Initialize big1 and big2 based on the first unequal pair
+        if(a[i] > a[i + 1])               
+        {
+            big1 = a[i];                  // big1 = larger element
+            big2 = a[i + 1];              // big2 = smaller element
+        }
+        else
+        {
+            big1 = a[i + 1];              // big1 = larger element
+            big2 = a[i];                  // big2 = smaller element
+        }
+
+        // Continue checking remaining elements from index i+2
+        for(i = i + 2; i < n; i++)
+        {
+            if(a[i] > big1)               // If current element is greater than big1
+            {
+                big2 = big1;              // Move previous big1 to big2
+                big1 = a[i];              // Update big1 with new maximum
+            }
+            else if((a[i] > big2) && (a[i] != big1)) // If current element lies between big1 and big2
+                big2 = a[i];              // Update second largest
+        }
+
+        printf("%d %d\n", big1, big2);    // Print the two largest numbers
+    }
+    else
+    {
+        // All elements are equal, so no largest and second largest distinction
+        printf("all the elements are same\n");
+    }
+}
